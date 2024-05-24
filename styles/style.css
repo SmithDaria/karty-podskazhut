@@ -5,6 +5,9 @@
 }
 .page {
   margin: 0;
+  color: var(--text-color, #312a4e);
+  font-family: var(--main-font, sans-serif);
+  background-color: var(--bg-color, #f3efec);
   min-inline-size: 360px;
 }
 p,
@@ -24,7 +27,7 @@ figure {
   --text-color: #312a4e;
   --accent-color: #ffab6b;
   --main-font: "Raleway", Arial, sans-serif;
-  --accent-font: "STIX Two Text", sans-serif;
+  --accent-font: "STIX Two Text", serif;
 }
 a:focus,
 button:focus {
@@ -36,16 +39,11 @@ a:hover {
 a:focus-visible {
   outline: 1px solid currentColor;
 }
-.page {
-  color: var(--text-color, #312a4e);
-  font-family: var(--main-font, sans-serif);
-  background-color: var(--bg-color, #f3efec);
-}
 .header {
   padding-top: 10%;
 }
 .heading {
-  font-family: var(--accent-font, sans-serif);
+  font-family: var(--accent-font, serif);
   font-weight: 600;
   line-height: 90%;
   text-align: center;
@@ -70,7 +68,8 @@ a:focus-visible {
 }
 .header__theme-toggler {
   display: flex;
-  /* column-gap: 20px; */
+  justify-content: flex-start;
+  gap: 8px;
   list-style-type: none;
 }
 .header__theme-button {
@@ -84,6 +83,9 @@ a:focus-visible {
   line-height: 104%;
   text-align: center;
   background-color: transparent;
+}
+.header__theme-button_type_light {
+  margin-right: -5px;
 }
 .header__theme-button:hover {
   text-decoration: underline;
@@ -137,22 +139,25 @@ a:focus-visible {
   padding-inline-start: 40px;
   list-style-type: none;
 }
+li:not(:last-child).content__list-item {
+  padding-bottom: 10px;
+}
 .content__list-item {
   position: relative;
-}
-.content__list-item:not(:last-child) {
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .content__list-item::before {
   content: "";
   position: absolute;
-  top: 3px;
+  top: center;
   left: -25px;
   width: 15px;
   height: 15px;
+  object-position: center;
   background-image: url("../images/marker-light.svg");
   background-repeat: no-repeat;
-  background-position: center;
 }
 .content__text-block_type_first-lettered
   .content__paragraph:first-child::first-letter {
